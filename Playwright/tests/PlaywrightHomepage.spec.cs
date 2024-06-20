@@ -6,6 +6,7 @@ using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
 using HomePage.model;
+using System.Security.Cryptography;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
@@ -38,5 +39,27 @@ public class ExampleTest : PageTest
         isExist.Should().BeTrue();
 
         // await Expect(homePage.installationButton()).ToBeVisibleAsync();
+    }
+
+    [Test]
+    public async Task noImages()
+    {
+        HomePage homePage = new HomePage(await Browser.NewPageAsync());
+        homePage._page.Request += (_, request) => Console.WriteLine(request.Method + "---" + request.Url);
+        await homePage._page.RouteAsync("**/*", async route =>
+        {
+            if (route.Request.ResourceType == "image")
+            {
+                await route.AbortAsync();
+            }
+            else
+            {
+                await route.ContinueAsync();
+            }
+
+        });
+        await homePage.GotoAsync();
+
+
     }
 }
