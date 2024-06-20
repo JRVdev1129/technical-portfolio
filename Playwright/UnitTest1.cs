@@ -28,10 +28,8 @@ public class ExampleTest : PageTest
         HomePage homePage = new HomePage(await Browser.NewPageAsync());
         await homePage.GotoAsync();
 
-        var getStartedLink = Page.GetByRole(AriaRole.Link, new() { Name = "Get started" });
-
         // Click the get started link.
-        await homePage.ClickStartedLink();
+        await homePage.ClickStartedLinkNetworkEvent();
         var isExist = await homePage.CheckInstallationButton();
 
         // Expects page to have a heading with the name of Installation.
