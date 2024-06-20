@@ -1,4 +1,5 @@
 namespace Playwright;
+using FluentAssertions;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
@@ -34,6 +35,7 @@ public class ExampleTest : PageTest
 
         // Expects page to have a heading with the name of Installation.
         Assert.IsTrue(isExist);
+        isExist.Should().BeTrue();
 
         // await Expect(homePage.installationButton()).ToBeVisibleAsync();
     }
