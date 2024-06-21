@@ -2,11 +2,9 @@ namespace Playwright;
 using FluentAssertions;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
 using HomePage.model;
-using System.Security.Cryptography;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
