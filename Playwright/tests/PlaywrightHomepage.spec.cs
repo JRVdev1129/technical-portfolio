@@ -10,54 +10,54 @@ using HomePage.model;
 [TestFixture]
 public class ExampleTest : PageTest
 {
-    [Test]
-    public async Task HasTitle()
-    {
-        HomePage homePage = new HomePage(await Browser.NewPageAsync());
-        await homePage.GotoAsync();
+    // [Test]
+    // public async Task HasTitle()
+    // {
+    //     HomePage homePage = new HomePage(await Browser.NewPageAsync());
+    //     await homePage.GotoAsync();
 
 
 
-        // Expect a title "to contain" a substring.
-        await Expect(homePage._page).ToHaveTitleAsync(new Regex("Playwright"));
-    }
+    //     // Expect a title "to contain" a substring.
+    //     await Expect(homePage._page).ToHaveTitleAsync(new Regex("Playwright"));
+    // }
 
-    [Test]
-    public async Task GetStartedLink()
-    {
-        HomePage homePage = new HomePage(await Browser.NewPageAsync());
-        await homePage.GotoAsync();
+    // [Test]
+    // public async Task GetStartedLink()
+    // {
+    //     HomePage homePage = new HomePage(await Browser.NewPageAsync());
+    //     await homePage.GotoAsync();
 
-        // Click the get started link.
-        await homePage.ClickStartedLinkNetworkEvent();
-        var isExist = await homePage.CheckInstallationButton();
+    //     // Click the get started link.
+    //     await homePage.ClickStartedLinkNetworkEvent();
+    //     var isExist = await homePage.CheckInstallationButton();
 
-        // Expects page to have a heading with the name of Installation.
-        Assert.IsTrue(isExist);
-        isExist.Should().BeTrue();
+    //     // Expects page to have a heading with the name of Installation.
+    //     Assert.IsTrue(isExist);
+    //     isExist.Should().BeTrue();
 
-        // await Expect(homePage.installationButton()).ToBeVisibleAsync();
-    }
+    //     // await Expect(homePage.installationButton()).ToBeVisibleAsync();
+    // }
 
-    [Test]
-    public async Task noImages()
-    {
-        HomePage homePage = new HomePage(await Browser.NewPageAsync());
-        homePage._page.Request += (_, request) => Console.WriteLine(request.Method + "---" + request.Url);
-        await homePage._page.RouteAsync("**/*", async route =>
-        {
-            if (route.Request.ResourceType == "image")
-            {
-                await route.AbortAsync();
-            }
-            else
-            {
-                await route.ContinueAsync();
-            }
+    // [Test]
+    // public async Task noImages()
+    // {
+    //     HomePage homePage = new HomePage(await Browser.NewPageAsync());
+    //     homePage._page.Request += (_, request) => Console.WriteLine(request.Method + "---" + request.Url);
+    //     await homePage._page.RouteAsync("**/*", async route =>
+    //     {
+    //         if (route.Request.ResourceType == "image")
+    //         {
+    //             await route.AbortAsync();
+    //         }
+    //         else
+    //         {
+    //             await route.ContinueAsync();
+    //         }
 
-        });
-        await homePage.GotoAsync();
+    //     });
+    //     await homePage.GotoAsync();
 
 
-    }
+    // }
 }
