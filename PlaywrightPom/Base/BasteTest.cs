@@ -2,7 +2,9 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 using NUnit.Framework;
+using sauceDemo.Base;
 using sauceDemo.Pages;
+
 
 namespace sauceDemo.Base;
 
