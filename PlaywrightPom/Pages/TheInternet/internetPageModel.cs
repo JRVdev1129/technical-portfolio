@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.Playwright;
-using sauceDemo.Base;
+using internet.Base;
 // using sauceDemo.Components;
 
 
-namespace sauceDemo.Pages
+namespace internet.Pages
 {
     public class InternetPageModel : BasePage
     {

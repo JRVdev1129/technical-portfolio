@@ -1,6 +1,6 @@
-namespace sauceDemo;
+namespace internet;
 
 public class Constants
 {
-    public static string CONSTANTVAR = "";
+    public static string BROWSER_TYPE = "BROWSER_TYPE";
 }

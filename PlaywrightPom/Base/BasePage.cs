@@ -4,9 +4,9 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 using NUnit.Framework;
-using sauceDemo.Base;
+using internet.Base;
 
-namespace sauceDemo;
+namespace internet;
 
 /// <summary>
 /// Base Page with common functions to all pages

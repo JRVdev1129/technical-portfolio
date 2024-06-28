@@ -1,4 +1,4 @@
-namespace sauceDemo.Base;
+namespace internet.Base;
 
 public interface IReporter
 {

@@ -4,10 +4,10 @@ using Microsoft.Playwright;
 using FluentAssertions;
 using NUnit.Framework;
 using Microsoft.Playwright.NUnit;
-using sauceDemo.Base;
-using sauceDemo.Pages;
+using internet.Base;
+using internet.Pages;
 
-namespace sauceDemo.Tests;
+namespace internet.Tests;
 
 [Parallelizable]
 public class abTest

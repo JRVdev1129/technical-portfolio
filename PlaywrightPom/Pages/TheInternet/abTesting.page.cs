@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Microsoft.Playwright;
-using sauceDemo.Base;
+using internet.Base;
 
 
-namespace sauceDemo.Pages
+namespace internet.Pages
 {
     public class ABTestingPageModel : InternetPageModel
     {

@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 
-namespace sauceDemo.Base;
+namespace internet.Base;
 
 public class PlaywrightDriver
 {
@@ -21,7 +21,7 @@ public class PlaywrightDriver
     {
         var playwright = await Playwright.CreateAsync();
 
-        string browserType = Environment.GetEnvironmentVariable(Constants.CONSTANTVAR);
+        string browserType = Environment.GetEnvironmentVariable(Constants.BROWSER_TYPE);
         BrowserTypeLaunchOptions launchOptions = new BrowserTypeLaunchOptions { Headless = false };
         return browserType switch
         {

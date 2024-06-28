@@ -1,5 +1,5 @@
 using System;
-namespace sauceDemo.Base;
+namespace internet.Base;
 
 public class ConsoleReporter : IReporter
 {
