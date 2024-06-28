@@ -21,7 +21,7 @@ public class PlaywrightDriver
     {
         var playwright = await Playwright.CreateAsync();
 
-        string browserType = Environment.GetEnvironmentVariable(Constants.BROWSER_TYPE);
+        string browserType = Environment.GetEnvironmentVariable(Constants.CONSTANTVAR);
         BrowserTypeLaunchOptions launchOptions = new BrowserTypeLaunchOptions { Headless = false };
         return browserType switch
         {

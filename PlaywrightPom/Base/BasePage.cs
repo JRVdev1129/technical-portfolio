@@ -15,34 +15,14 @@ public class BasePage
 {
     protected IPage Page;
 
-    private ILocator _burgerMenuId;
-    private ILocator _logoutMenuItem;
-    private ILocator _shoppingCartBadge;
     private IReporter _reporter;
     protected AnnotationHelper annotationHelper;
 
     public BasePage(IPage page)
     {
         this.Page = page;
-        _shoppingCartBadge = Page.Locator("span.shopping_cart_badge");
-        _logoutMenuItem = Page.Locator("#logout_sidebar_link");
-        _burgerMenuId = Page.Locator("#react-burger-menu-btn");
         _reporter = new ConsoleReporter();
         annotationHelper = new AnnotationHelper(_reporter);
-    }
-
-    /// <summary>
-    /// Total the items in the shopping cart
-    /// </summary>
-    public int ItemsInShoppingCart
-    {
-        get
-        {
-            if (_shoppingCartBadge.IsVisibleAsync().Result)
-                return int.Parse(_shoppingCartBadge.TextContentAsync().Result);
-            else
-                return 0;
-        }
     }
 
     /// <summary>
@@ -59,27 +39,7 @@ public class BasePage
         TestContext.AddTestAttachment(screenImage);
     }
 
-    /// <summary>
-    /// Click in the hamburger menu
-    /// </summary>
-    /// <returns></returns>
-    public async Task ClickMenuAsync() => await _burgerMenuId.ClickAsync();
 
-    /// <summary>
-    /// Click in shopping cart badge
-    /// </summary>
-    /// <returns></returns>
-    public async Task ClickShoppingCartBadgeAsync() => await _shoppingCartBadge.ClickAsync();
-
-    /// <summary>
-    /// Logout
-    /// </summary>
-    /// <returns></returns>
-    public async Task LogoutAsync()
-    {
-        await ClickMenuAsync();
-        await _logoutMenuItem.ClickAsync();
-    }
 
     public async Task GotoPageAsync(string page)
     {

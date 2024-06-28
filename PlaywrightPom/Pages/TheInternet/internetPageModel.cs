@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 using sauceDemo.Base;
-using sauceDemo.Components;
+// using sauceDemo.Components;
 
 
 namespace sauceDemo.Pages
@@ -9,17 +9,27 @@ namespace sauceDemo.Pages
     public class InternetPageModel : BasePage
     {
 
+
+
         public InternetPageModel(IPage page) : base(page)
         {
 
+
         }
+
+        // public void AddAnotation(string desc)
+        // {
+        //     this.annotationHelper.AddAnnotation(AnnotationType.Description, desc);
+        // }
 
 
         /// <summary>
-        /// Go to Login page
+        /// Go to Internet page
         /// </summary>
         /// <returns></returns>
         public async Task GotoAsync(AnnotationType annotationType = AnnotationType.Step) => await this.GotoPageAsync("https://the-internet.herokuapp.com/");
+
+
 
 
         private ILocator abTestingLink()
@@ -157,18 +167,6 @@ namespace sauceDemo.Pages
             return this.Page.Locator("#content  ul li:nth-child(27) a");
         }
 
-
-
-        public async Task ClickABTestingLink()
-        {
-
-            await this.Page.RunAndWaitForResponseAsync(async () =>
-            {
-                await abTestingLink().ClickAsync();
-            }, response => response.Url.Contains("abtest") && response.Status == 200);
-
-            await this.Page.WaitForURLAsync("https://the-internet.herokuapp.com/abtest");
-        }
 
 
         public async Task clickAddRemoveLink()
