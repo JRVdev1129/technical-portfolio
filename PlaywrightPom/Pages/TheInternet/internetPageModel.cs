@@ -17,11 +17,6 @@ namespace internet.Pages
 
         }
 
-        // public void AddAnotation(string desc)
-        // {
-        //     this.annotationHelper.AddAnnotation(AnnotationType.Description, desc);
-        // }
-
 
         /// <summary>
         /// Go to Internet page
@@ -35,11 +30,6 @@ namespace internet.Pages
         private ILocator abTestingLink()
         {
             return this.Page.Locator("#content  ul li:nth-child(1) a");
-        }
-
-        private ILocator addRemoveLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(2) a");
         }
 
         private ILocator basicAuthLink()
@@ -166,20 +156,6 @@ namespace internet.Pages
         {
             return this.Page.Locator("#content  ul li:nth-child(27) a");
         }
-
-
-
-        public async Task clickAddRemoveLink()
-        {
-
-            await this.Page.RunAndWaitForResponseAsync(async () =>
-            {
-                await addRemoveLink().ClickAsync();
-            }, response => response.Url.Contains("add_remove_elements") && response.Status == 200);
-
-            await this.Page.WaitForURLAsync("https://the-internet.herokuapp.com/add_remove_elements/");
-        }
-
 
 
     }
