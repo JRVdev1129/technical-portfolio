@@ -12,12 +12,12 @@ namespace internet.Tests;
 
 
 [Parallelizable]
-public class AuthTest
+public class BrokenImagesTest
 {
 
     private IPage _page;
     private IBrowserContext _context;
-    protected AuthPageModel authPage;
+    protected BrokenImagesPageModel brokenImagesPage;
 
     [SetUp]
     public async Task Setup()
@@ -25,20 +25,24 @@ public class AuthTest
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
         _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
-        authPage = new AuthPageModel(_page);
-        authPage.AddName(TestContext.CurrentContext.Test.Name);
-        await authPage.GotoAsync();
+        brokenImagesPage = new BrokenImagesPageModel(_page);
+        brokenImagesPage.AddName(TestContext.CurrentContext.Test.Name);
+        await brokenImagesPage.GotoAsync();
 
     }
-    [Test, Category("Auth")]
-    [TestCase(TestName = "Cliking Auth Link when the correct credentials are set should redirect the to Auth page")]
+    [Test, Category("Broken Images")]
+    [TestCase(TestName = "Cliking Broken Images Link should redirect the to Broken Images page")]
     public async Task NavigateToABTestingPage()
     {
 
-        await authPage.clickAuthLink();
+        await brokenImagesPage.clickBrokenImagesLink();
 
-        var text = await authPage.getAuthDescription();
-        text.Should().Contain("Congratulations! You must have the proper credentials");
+        var count = await brokenImagesPage.imageCount();
+        count.Should().Be(3);
+
+
+
+
     }
 
 

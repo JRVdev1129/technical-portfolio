@@ -34,10 +34,7 @@ namespace internet.Pages
 
 
 
-        private ILocator brokenImagesLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(4) a");
-        }
+
 
         private ILocator challengingDOMLink()
         {
