@@ -41,10 +41,7 @@ namespace internet.Pages
             return this.Page.Locator("#content  ul li:nth-child(5) a");
         }
 
-        private ILocator checkboxesLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(6) a");
-        }
+
 
         private ILocator contextMenuLink()
         {
