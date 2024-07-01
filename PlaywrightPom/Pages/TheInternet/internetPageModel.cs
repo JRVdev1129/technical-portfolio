@@ -32,10 +32,7 @@ namespace internet.Pages
             return this.Page.Locator("#content  ul li:nth-child(1) a");
         }
 
-        private ILocator basicAuthLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(3) a");
-        }
+
 
         private ILocator brokenImagesLink()
         {

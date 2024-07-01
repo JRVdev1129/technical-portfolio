@@ -35,7 +35,15 @@ public class PlaywrightDriver
     public async Task<IPage> InitalizePlaywrightTracingAsync()
     {
         var browser = await InitBrowserAsync();
-        Context = await browser.NewContextAsync();
+        Context = await browser.NewContextAsync(new()
+        {
+            HttpCredentials = new HttpCredentials
+            {
+                Username = "admin",
+                Password = "admin"
+            },
+        });
+
         // Sample for tracing
         await Context.Tracing.StartAsync(new TracingStartOptions
         {
