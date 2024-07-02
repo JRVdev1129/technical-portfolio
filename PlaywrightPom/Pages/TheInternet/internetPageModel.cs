@@ -43,10 +43,6 @@ namespace internet.Pages
 
 
 
-        private ILocator contextMenuLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(7) a");
-        }
 
         private ILocator digestAuthenticationLink()
         {
