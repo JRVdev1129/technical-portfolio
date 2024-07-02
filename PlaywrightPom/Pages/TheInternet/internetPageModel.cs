@@ -51,11 +51,6 @@ namespace internet.Pages
 
 
 
-        private ILocator dropdownLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(11) a");
-        }
-
         private ILocator dynamicContentLink()
         {
             return this.Page.Locator("#content  ul li:nth-child(12) a");
