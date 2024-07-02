@@ -49,10 +49,6 @@ namespace internet.Pages
             return this.Page.Locator("#content  ul li:nth-child(8) a");
         }
 
-        private ILocator disappearingElementsLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(9) a");
-        }
 
         private ILocator dragAndDropLinkLink()
         {

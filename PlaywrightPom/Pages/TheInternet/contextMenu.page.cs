@@ -40,7 +40,7 @@ namespace internet.Pages
 
 
 
-            void getContextMenuDialog(object sender, IDialog dialog)
+            void getContextMenuDialog(object? sender, IDialog dialog)
             {
                 dialog.DismissAsync();
                 this.Page.Dialog -= getContextMenuDialog;

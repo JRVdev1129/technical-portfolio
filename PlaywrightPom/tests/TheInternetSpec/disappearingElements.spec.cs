@@ -12,12 +12,12 @@ namespace internet.Tests;
 
 
 [Parallelizable]
-public class ContextMenuTest
+public class disappearingElementsTest
 {
 
     private IPage _page;
     private IBrowserContext _context;
-    protected ContextMenuPageModel contextMenu;
+    protected DisappearingElementsPageModel disappearingElementsPage;
 
     [SetUp]
     public async Task Setup()
@@ -25,21 +25,24 @@ public class ContextMenuTest
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
         _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
-        contextMenu = new ContextMenuPageModel(_page);
-        contextMenu.AddName(TestContext.CurrentContext.Test.Name);
-        await contextMenu.GotoAsync();
+        disappearingElementsPage = new DisappearingElementsPageModel(_page);
+        disappearingElementsPage.AddName(TestContext.CurrentContext.Test.Name);
+        await disappearingElementsPage.GotoAsync();
 
     }
-    [Test, Category("context menu")]
-    [TestCase(TestName = "Cliking context Menu link should redirect the to context Menu page")]
+    [Test, Category("disappearing elements")]
+    [TestCase(TestName = "Cliking disappearing Elements Link should redirect the to disappearing elements page")]
     public async Task NavigateToABTestingPage()
     {
 
-        await contextMenu.clickContextMenuLink();
+        await disappearingElementsPage.clickDisappearingelementsLink();
 
-        var message = await contextMenu.triggersDialog();
+        var count = await disappearingElementsPage.elementCount();
+        count.Should().Be(5);
 
-        message.Should().Be(("You selected a context menu"));
+
+
+
     }
 
 
