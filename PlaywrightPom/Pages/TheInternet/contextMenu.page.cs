@@ -42,7 +42,6 @@ namespace internet.Pages
 
             void getContextMenuDialog(object sender, IDialog dialog)
             {
-                // Console.WriteLine($"Dialog message: {dialog.Message} lol {dialog.Type}");
                 dialog.DismissAsync();
                 this.Page.Dialog -= getContextMenuDialog;
                 setMessage.SetResult(dialog.Message);
@@ -59,17 +58,6 @@ namespace internet.Pages
         }
 
 
-        public async Task getDialogMessage()
-        {
-            Page.Dialog += async (_, dialog) =>
-                {
-                    System.Console.WriteLine(dialog.Message);
-                    await dialog.DismissAsync();
-                };
-
-            await this.Page.EvaluateAsync("alert('1');");
-        }
-
         public async Task clickContextMenuLink()
         {
             this.annotationHelper.AddAnnotation(AnnotationType.Step, "Navigates to context menu page");
@@ -82,9 +70,5 @@ namespace internet.Pages
 
 
         }
-
-
-
-
     }
 }
