@@ -50,10 +50,6 @@ namespace internet.Pages
         }
 
 
-        private ILocator dragAndDropLinkLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(10) a");
-        }
 
         private ILocator dropdownLink()
         {
