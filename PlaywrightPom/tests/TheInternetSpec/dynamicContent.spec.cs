@@ -10,7 +10,7 @@ using NUnit.Framework;
 
 namespace internet.Tests;
 
-
+[TestFixture]
 [Parallelizable]
 public class DynamicContentTest
 {

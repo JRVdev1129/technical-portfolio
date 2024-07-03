@@ -9,6 +9,7 @@ using internet.Pages;
 
 namespace internet.Tests;
 
+[TestFixture]
 [Parallelizable]
 public class abTest
 {

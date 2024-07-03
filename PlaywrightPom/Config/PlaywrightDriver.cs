@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
+using internet;
 
 namespace internet.Base;
 
@@ -21,7 +22,8 @@ public class PlaywrightDriver
     {
         var playwright = await Playwright.CreateAsync();
 
-        string browserType = Environment.GetEnvironmentVariable(Constants.BROWSER_TYPE);
+        string browserType = Environment.GetEnvironmentVariable("BROWSER_TYPE");
+        Assert.IsNotNull(browserType, "Environment variable not set.");
         BrowserTypeLaunchOptions launchOptions = new BrowserTypeLaunchOptions { Headless = false };
         return browserType switch
         {
