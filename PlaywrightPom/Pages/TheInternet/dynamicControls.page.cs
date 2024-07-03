@@ -21,16 +21,6 @@ namespace internet.Pages
         private ILocator dynamicControlsLink()
         {
 
-            // await Expect(page.GetByText("A checkbox")).ToBeVisibleAsync();
-            // await page.GetByRole(AriaRole.Button, new() { Name = "Remove" }).ClickAsync();
-            // await Expect(page.GetByText("Wait for it...")).ToBeVisibleAsync();
-            // await Expect(page.GetByText("It's gone!")).ToBeVisibleAsync();
-            // await Expect(page.GetByRole(AriaRole.Button, new() { Name = "Add" })).ToBeVisibleAsync();
-            // await page.GetByRole(AriaRole.Button, new() { Name = "Add" }).ClickAsync();
-            // await Expect(page.GetByText("Wait for it...").First).ToBeVisibleAsync();
-            // await Expect(page.GetByText("It's back!")).ToBeVisibleAsync();
-            // await Expect(page.GetByText("A checkbox")).ToBeVisibleAsync();
-
             return this.Page.Locator("#content  ul li:nth-child(13) a");
         }
 

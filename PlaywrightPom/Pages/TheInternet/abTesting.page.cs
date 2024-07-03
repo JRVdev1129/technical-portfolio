@@ -17,12 +17,6 @@ namespace internet.Pages
         }
 
 
-
-        // public void AddAnotation(string desc)
-        // {
-        //     this.annotationHelper.AddAnnotation(AnnotationType.Description, desc);
-        // }
-
         public ILocator abTestingDescription()
         {
             return this.Page.Locator(".example p");

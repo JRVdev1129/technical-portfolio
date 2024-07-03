@@ -12,12 +12,12 @@ namespace internet.Tests;
 
 [TestFixture]
 [Parallelizable]
-public class disappearingElementsTest
+public class FileDownloaderTest
 {
 
     private IPage _page;
     private IBrowserContext _context;
-    protected DisappearingElementsPageModel disappearingElementsPage;
+    protected FileDownloaderPageModel fileDownloaderPage;
 
     [SetUp]
     public async Task Setup()
@@ -25,20 +25,19 @@ public class disappearingElementsTest
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
         _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
-        disappearingElementsPage = new DisappearingElementsPageModel(_page);
-        disappearingElementsPage.AddName(TestContext.CurrentContext.Test.Name);
-        await disappearingElementsPage.GotoAsync();
+        fileDownloaderPage = new FileDownloaderPageModel(_page);
+        fileDownloaderPage.AddName(TestContext.CurrentContext.Test.Name);
+        await fileDownloaderPage.GotoAsync();
 
     }
-    [Test, Category("disappearing elements")]
-    [TestCase(TestName = "Cliking disappearing Elements Link should redirect the to disappearing elements page")]
+    [Test, Category("File Downloader")]
+    [TestCase(TestName = "Cliking File Downloader Link should redirect the to File Downloader page")]
     public async Task NavigateToABTestingPage()
     {
+        await fileDownloaderPage.clickFileDownloaderLink();
 
-        await disappearingElementsPage.clickDisappearingelementsLink();
-
-        var count = await disappearingElementsPage.elementCount();
-        count.Should().Be(5);
+        var file = await fileDownloaderPage.clickBladeHeroImg();
+        Assert.IsTrue(File.Exists(file), $"File was not downloaded: {file}");
     }
 
 

@@ -40,10 +40,6 @@ public class DragAndDropTest
         await dragAndDropPage.dragAndDropColumnAToB();
         var columnA = await dragAndDropPage.columnAText().TextContentAsync();
         columnA.Should().Be("B");
-
-
-
-
     }
 
 

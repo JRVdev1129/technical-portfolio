@@ -22,10 +22,6 @@ namespace internet.Pages
             return this.Page.Locator("#content  ul li:nth-child(7) a");
         }
 
-        private ILocator checkboxesLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(6) a");
-        }
 
         public ILocator item()
         {

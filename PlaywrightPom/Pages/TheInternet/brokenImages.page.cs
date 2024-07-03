@@ -31,10 +31,6 @@ namespace internet.Pages
             return await brokenImages().CountAsync();
         }
 
-        // public async Task<string> getAuthDescription() => await authPageMessage().TextContentAsync();
-
-
-
 
         public async Task clickBrokenImagesLink()
         {

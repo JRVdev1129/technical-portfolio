@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 using internet.Base;
-// using sauceDemo.Components;
 
 
 namespace internet.Pages
@@ -65,10 +64,6 @@ namespace internet.Pages
             return this.Page.Locator("#content  ul li:nth-child(16) a");
         }
 
-        private ILocator fileDownloadLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(17) a");
-        }
 
         private ILocator fileUploadLink()
         {

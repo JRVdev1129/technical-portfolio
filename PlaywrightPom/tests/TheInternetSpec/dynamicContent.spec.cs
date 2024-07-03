@@ -63,13 +63,6 @@ public class DynamicContentTest
         }
         numberOfImagesThatChangeOnPageRefresh.Should().BeGreaterThan(0, $"Test failed because none of the images in the page changed. Before: {string.Join(", ", previousImageSources)} After: {string.Join(", ", currentImageSources)}");
         numberOfParagraphsThatChangeOnPageRefresh.Should().BeGreaterThan(0, $"Test failed because none of the paragraphs in the page changed. Before: {string.Join(", ", PreviousParagraphsContent)} After: {string.Join(", ", CurrentParagraphsContent)}");
-
-
-
-
-
-
-
     }
 
 

@@ -47,20 +47,11 @@ namespace internet.Pages
 
         public async Task interactWithDialog()
         {
-            // await this.Page.GotoAsync("<url>");
-
-            // await this.Page.EvaluateAsync("(() => {window.waitForPrintDialog = new Promise(f => window.print = f);})()");
-            // await this.Page.GetByText("Cancel").ClickAsync();
 
             this.Page.Dialog += async (_, dialog) =>
              {
-                 // Ensure it is the expected dialog with the form
 
-                 // Accept the dialog and provide any necessary input
                  Console.WriteLine(dialog.Type);
-
-
-
              };
         }
 

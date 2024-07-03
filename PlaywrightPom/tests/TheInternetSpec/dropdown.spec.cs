@@ -40,10 +40,6 @@ public class DropDownTest
         await dropdownPage.dropdownElement().SelectOptionAsync("Option 1");
         var option = await dropdownPage.optionOne().GetAttributeAsync("selected");
         option.Should().Contain("selected");
-
-
-
-
     }
 
 
