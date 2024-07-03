@@ -51,10 +51,6 @@ namespace internet.Pages
 
 
 
-        private ILocator dynamicContentLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(12) a");
-        }
 
         private ILocator dynamicControlsLink()
         {
