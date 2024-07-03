@@ -50,13 +50,6 @@ namespace internet.Pages
         }
 
 
-
-
-        private ILocator dynamicControlsLink()
-        {
-            return this.Page.Locator("#content  ul li:nth-child(13) a");
-        }
-
         private ILocator dynamicLoadingLink()
         {
             return this.Page.Locator("#content  ul li:nth-child(14) a");
