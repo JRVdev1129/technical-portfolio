@@ -25,7 +25,8 @@ const mainConf = {
   suites: {
     heroku: [
       // '../test/specs/internet/abTesting.spec.ts',
-      '../test/specs/internet/addRemove.spec.ts',
+      // '../test/specs/internet/addRemove.spec.ts',
+      '../test/specs/internet/brokenImages.spec.ts',
     ],
   },
   waitforTimeout: 120000,

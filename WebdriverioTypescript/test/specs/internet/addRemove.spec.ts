@@ -1,8 +1,5 @@
 import { expect } from '@wdio/globals';
 import { expect as mochaExpect } from 'chai';
-
-// import Mocha from 'mocha';
-
 import addRemove from '../../../page-objects/addRemove.page.js';
 
 describe('Scenario: internet heroku', () => {
