@@ -11,6 +11,6 @@
     "typescript": "^5.5.3"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
+    "internet": "wdio run ./config/internet.conf.ts --suite heroku"
   }
 }
