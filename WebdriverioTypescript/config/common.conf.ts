@@ -1,5 +1,5 @@
 import type { Options } from '@wdio/types'
-export const config: Options.Testrunner = {
+export const commonConf: Options.Testrunner = {
     //
     // ====================
     // Runner Configuration
