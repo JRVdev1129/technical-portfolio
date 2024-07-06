@@ -23,7 +23,7 @@ const mainConf = {
   ],
   specs: ["../test/specs/**/**.spec.ts"],
   suites: {
-    heroku: ["../test/specs/internet/test.e2e.ts"],
+    heroku: ["../test/specs/internet/abTesting.spec.ts"],
   },
   waitforTimeout: 120000,
   connectionRetryCount: 3,
