@@ -4,7 +4,7 @@ import Page from './page.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+class ABTestingPage extends Page {
   public get abTestingDescription() {
     return $('.example p');
   }
@@ -21,4 +21,4 @@ class LoginPage extends Page {
   }
 }
 
-export default new LoginPage();
+export default new ABTestingPage();
