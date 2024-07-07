@@ -13,13 +13,6 @@ class ContextMenuPage extends Page {
         return $("#hot-spot");
     }
 
-    javascriptAlertButton(index: number) { return $(`.example li:nth-child(${index}) button`) }
-
-    clickJavascriptAlertButton(index: number) {
-        this.javascriptAlertButton(index).waitForDisplayed()
-        this.javascriptAlertButton(index).click()
-    }
-
 
   public open() {
     return super.open();

@@ -28,7 +28,9 @@ const mainConf = {
       // '../test/specs/internet/addRemove.spec.ts',
       // '../test/specs/internet/brokenImages.spec.ts',
       // '../test/specs/internet/checkboxes.spec.ts',
-      '../test/specs/internet/contextMenu.spec.ts',
+      // '../test/specs/internet/contextMenu.spec.ts',
+      '../test/specs/internet/disappearingElements.spec.ts',
+
     ],
   },
   waitforTimeout: 120000,
