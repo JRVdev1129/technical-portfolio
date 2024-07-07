@@ -30,7 +30,9 @@ const mainConf = {
       // '../test/specs/internet/checkboxes.spec.ts',
       // '../test/specs/internet/contextMenu.spec.ts',
       // '../test/specs/internet/disappearingElements.spec.ts',
-      '../test/specs/internet/dragAndDrop.spec.ts',
+      // '../test/specs/internet/dragAndDrop.spec.ts',
+      '../test/specs/internet/dropdown.spec.ts',
+
 
 
     ],
