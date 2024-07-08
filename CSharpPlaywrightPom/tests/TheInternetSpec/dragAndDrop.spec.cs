@@ -23,7 +23,7 @@ public class DragAndDropTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         dragAndDropPage = new DragAndDropPageModel(_page);
         dragAndDropPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class DragAndDropTest
 
     }
     [Test, Category("Drag And Drop")]
-    [TestCase(TestName = "Cliking drang and drop Link should redirect the to  drag and drop page")]
+    [TestCase(TestName = "Clicking drag and drop Link should redirect the to  drag and drop page")]
     public async Task NavigateToABTestingPage()
     {
 

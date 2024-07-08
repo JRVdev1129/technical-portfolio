@@ -23,7 +23,7 @@ public class DropDownTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         dropdownPage = new DropdownPageModel(_page);
         dropdownPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class DropDownTest
 
     }
     [Test, Category("Dropdown")]
-    [TestCase(TestName = "Cliking dropdown Link should redirect the to dropdown page")]
+    [TestCase(TestName = "Clicking dropdown Link should redirect the to dropdown page")]
     public async Task NavigateToABTestingPage()
     {
 

@@ -23,7 +23,7 @@ public class ContextMenuTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         contextMenu = new ContextMenuPageModel(_page);
         contextMenu.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class ContextMenuTest
 
     }
     [Test, Category("context menu")]
-    [TestCase(TestName = "Cliking context Menu link should redirect the to context Menu page")]
+    [TestCase(TestName = "Clicking context Menu link should redirect the to context Menu page")]
     public async Task NavigateToABTestingPage()
     {
 

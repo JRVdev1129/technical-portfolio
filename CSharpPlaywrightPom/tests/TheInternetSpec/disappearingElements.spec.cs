@@ -23,7 +23,7 @@ public class disappearingElementsTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         disappearingElementsPage = new DisappearingElementsPageModel(_page);
         disappearingElementsPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class disappearingElementsTest
 
     }
     [Test, Category("disappearing elements")]
-    [TestCase(TestName = "Cliking disappearing Elements Link should redirect the to disappearing elements page")]
+    [TestCase(TestName = "Clicking disappearing Elements Link should redirect the to disappearing elements page")]
     public async Task NavigateToABTestingPage()
     {
 

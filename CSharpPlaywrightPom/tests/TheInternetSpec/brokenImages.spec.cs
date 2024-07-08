@@ -23,7 +23,7 @@ public class BrokenImagesTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         brokenImagesPage = new BrokenImagesPageModel(_page);
         brokenImagesPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class BrokenImagesTest
 
     }
     [Test, Category("Broken Images")]
-    [TestCase(TestName = "Cliking Broken Images Link should redirect the to Broken Images page")]
+    [TestCase(TestName = "Clicking Broken Images Link should redirect the to Broken Images page")]
     public async Task NavigateToABTestingPage()
     {
 

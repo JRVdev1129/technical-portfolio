@@ -23,7 +23,7 @@ public class DynamicContentTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         dynamicContentPage = new DynamicContentPageModel(_page);
         dynamicContentPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class DynamicContentTest
 
     }
     [Test, Category("Dynamic Content")]
-    [TestCase(TestName = "Cliking Dynamic Content Link should redirect the to Dynamic Content page")]
+    [TestCase(TestName = "Clicking Dynamic Content Link should redirect the to Dynamic Content page")]
     public async Task NavigateToABTestingPage()
     {
 

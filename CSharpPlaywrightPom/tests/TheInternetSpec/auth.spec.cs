@@ -23,7 +23,7 @@ public class AuthTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         authPage = new AuthPageModel(_page);
         authPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class AuthTest
 
     }
     [Test, Category("Auth")]
-    [TestCase(TestName = "Cliking Auth Link when the correct credentials are set should redirect the to Auth page")]
+    [TestCase(TestName = "Clicking Auth Link when the correct credentials are set should redirect the to Auth page")]
     public async Task NavigateToABTestingPage()
     {
 

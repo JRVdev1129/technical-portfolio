@@ -22,7 +22,7 @@ public class abTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         abTestingPage = new ABTestingPageModel(_page);
         abTestingPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -30,7 +30,7 @@ public class abTest
 
     }
     [Test, Category("AB Testing")]
-    [TestCase(TestName = "Cliking AB Testing Link should redirect the to A/B testing page")]
+    [TestCase(TestName = "Clicking AB Testing Link should redirect the to A/B testing page")]
     public async Task NavigateToABTestingPage()
     {
         await abTestingPage.ClickABTestingLink();

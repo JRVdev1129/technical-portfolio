@@ -23,7 +23,7 @@ public class DynamicControlTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         dynamicControlPage = new DynamicControlPageModel(_page);
         dynamicControlPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class DynamicControlTest
 
     }
     [Test, Category("Dynamic Control")]
-    [TestCase(TestName = "Cliking Dynamic control Link should redirect the to Dynamic control page")]
+    [TestCase(TestName = "Clicking Dynamic control Link should redirect the to Dynamic control page")]
     public async Task NavigateToABTestingPage()
     {
 

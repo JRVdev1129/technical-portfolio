@@ -23,7 +23,7 @@ public class AddRemoveTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         addRemovePage = new AddRemovePageModel(_page);
         addRemovePage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class AddRemoveTest
 
     }
     [Test, Category("Add Remove Elements")]
-    [TestCase(TestName = "Cliking Add/Remove Link should redirect the to Add/Remove page")]
+    [TestCase(TestName = "Clicking Add/Remove Link should redirect the to Add/Remove page")]
     public async Task NavigateToABTestingPage()
     {
 

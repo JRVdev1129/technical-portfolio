@@ -23,7 +23,7 @@ public class FileDownloaderTest
     public async Task Setup()
     {
         PlaywrightDriver playwrightDriver = new PlaywrightDriver();
-        _page = await playwrightDriver.InitalizePlaywrightTracingAsync();
+        _page = await playwrightDriver.InitializePlaywrightTracingAsync();
         _context = playwrightDriver.Context;
         fileDownloaderPage = new FileDownloaderPageModel(_page);
         fileDownloaderPage.AddName(TestContext.CurrentContext.Test.Name);
@@ -31,7 +31,7 @@ public class FileDownloaderTest
 
     }
     [Test, Category("File Downloader")]
-    [TestCase(TestName = "Cliking File Downloader Link should redirect the to File Downloader page")]
+    [TestCase(TestName = "Clicking File Downloader Link should redirect the to File Downloader page")]
     public async Task NavigateToABTestingPage()
     {
         await fileDownloaderPage.clickFileDownloaderLink();
