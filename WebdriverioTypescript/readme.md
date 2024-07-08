@@ -9,7 +9,7 @@
 
 [Download and Install NodeJS LTS](https://nodejs.org/en/download/)
 
-Install dependencies - npm install
+Install dependencies - `npm install`
 
 ### How to run tests locally
 
