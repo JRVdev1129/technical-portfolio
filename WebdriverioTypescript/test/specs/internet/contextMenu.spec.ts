@@ -19,8 +19,9 @@ describe('Scenario: internet heroku', function() {
 
       describe('When: User right clicks the box', function() {
         it('Then: A js alert should display', async function() {
-          // skip test because of an issue with webdriverio method .click when using option skipRelease
-            this.skip();
+          await contextMenuPage.item.click({ button: 'right', x: 0, y: 0, skipRelease: true });
+          await expect(await browser.isAlertOpen()).toBeTruthy();
+          await expect(await browser.getAlertText()).toContain('You selected a context menu');
         });
       });
     });

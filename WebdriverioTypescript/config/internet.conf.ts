@@ -5,7 +5,7 @@ const mainConf = {
     {
       browserName: 'chrome',
       browserVersion: 'stable',
-      maxInstances: 1,
+      maxInstances: 5,
       pageLoadStrategy: 'eager',
       'goog:chromeOptions': {
         args: [
@@ -24,15 +24,15 @@ const mainConf = {
   specs: ['../test/specs/**/**.spec.ts'],
   suites: {
     heroku: [
-      // '../test/specs/internet/abTesting.spec.ts',
-      // '../test/specs/internet/addRemove.spec.ts',
-      // '../test/specs/internet/brokenImages.spec.ts',
-      // '../test/specs/internet/checkboxes.spec.ts',
-      // '../test/specs/internet/contextMenu.spec.ts',
-      // '../test/specs/internet/disappearingElements.spec.ts',
-      // '../test/specs/internet/dragAndDrop.spec.ts',
-      // '../test/specs/internet/dropdown.spec.ts',
-      // '../test/specs/internet/dynamicContent.spec.ts',
+      '../test/specs/internet/abTesting.spec.ts',
+      '../test/specs/internet/addRemove.spec.ts',
+      '../test/specs/internet/brokenImages.spec.ts',
+      '../test/specs/internet/checkboxes.spec.ts',
+      '../test/specs/internet/contextMenu.spec.ts',
+      '../test/specs/internet/disappearingElements.spec.ts',
+      '../test/specs/internet/dragAndDrop.spec.ts',
+      '../test/specs/internet/dropdown.spec.ts',
+      '../test/specs/internet/dynamicContent.spec.ts',
       '../test/specs/internet/dynamicControls.spec.ts',
 
 
