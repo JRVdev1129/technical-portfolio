@@ -6,13 +6,13 @@ Below, you'll find a brief overview of the structure and contents of this reposi
 ## Repository Structure
 This repository is structured so each directory is using a different set of technologies, as the time of writting there are 2 directories, one for c# and playwright, and another one for webdriverio with typescript
 
-### WebdriverioTypescript
+### Webdriverio Typescript
 
 This directory contains E2E tests written in typescript using webdriverio. It demonstrates how to set up and execute automated tests within a node environment.
 
 - [webdriverio](./WebdriverioTypescript/)
 
-### DOTNET C#
+### DOTNET Playwright
 
 This directory contains E2E Tests written in C# using Playwright. It showcases my ability to work with DOTNET-based testing frameworks.
 
