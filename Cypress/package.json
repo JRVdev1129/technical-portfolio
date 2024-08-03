@@ -1,0 +1,8 @@
+{
+  "name": "CypressTypescript",
+  "type": "module",
+  "devDependencies": {
+    "cypress": "^13.13.2",
+    "typescript": "^5.5.4"
+  }
+}
