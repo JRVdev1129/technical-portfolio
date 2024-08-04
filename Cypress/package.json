@@ -1,8 +1,15 @@
 {
-  "name": "CypressTypescript",
-  "type": "module",
+  "name": "cypressjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "internet": "cypress run --browser chrome --spec specs/internet/internet.cy.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "cypress": "^13.13.2",
-    "typescript": "^5.5.4"
+    "cypress": "^13.13.2"
   }
 }
