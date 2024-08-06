@@ -1,0 +1,17 @@
+{
+  "name": "seleniumjavascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node spec/e2e/internet/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
+    "selenium-webdriver": "^4.23.0"
+  }
+}
