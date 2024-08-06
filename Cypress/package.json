@@ -12,5 +12,8 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.5",
     "cypress": "^13.13.2"
+  },
+  "dependencies": {
+    "chai": "^5.1.1"
   }
 }
