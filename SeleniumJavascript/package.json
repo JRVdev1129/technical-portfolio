@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "mocha specs/e2e/internet/abTesting.spec.js --timeout 60000"
+    "test": "mocha specs/e2e/internet/addRemove.spec.js --timeout 60000"
   },
   "keywords": [],
   "author": "",
