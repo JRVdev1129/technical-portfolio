@@ -36,6 +36,20 @@ class BasePage {
     );
   }
 
+  async isVisible(css, waitTimeout = 500) {
+    // Returns true if there is an element that matches the css selector in the page
+    try {
+      const element = await driver.findElements(By.css(css), waitTimeout);
+
+      if (element.length > 0) {
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
   async closeBrowser() {
     await driver.quit();
   }
