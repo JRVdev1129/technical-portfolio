@@ -1,4 +1,4 @@
-#project forked from https://github.com/harblaith7/React-Testing-Library-Net-Ninja/tree/01-Starter-Project
+# project forked from https://github.com/harblaith7/React-Testing-Library-Net-Ninja/tree/01-Starter-Project
 
 running `npm install` and `npm run start` with `node 16` should be enough for this react project to run
 
