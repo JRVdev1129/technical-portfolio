@@ -19,7 +19,11 @@ namespace CSharpSelFramework.utilities
           String myJsonString = File.ReadAllText("utilities/testData.json");
 
            var jsonObject = JToken.Parse(myJsonString);
-           return jsonObject.SelectToken(tokenName).Value<string>();
+#pragma warning disable CS8604 // Possible null reference argument.
+#pragma warning disable CS8603 // Possible null reference return.
+            return jsonObject.SelectToken(tokenName).Value<string>();
+#pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8604 // Possible null reference argument.
 
 
         }
@@ -30,7 +34,9 @@ namespace CSharpSelFramework.utilities
             String myJsonString = File.ReadAllText("utilities/testData.json");
 
             var jsonObject = JToken.Parse(myJsonString);
-          List<String> productsList=   jsonObject.SelectTokens(tokenName).Values<string>().ToList();
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
+            List<String> productsList=   jsonObject.SelectTokens(tokenName).Values<string>().ToList();
+#pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
             return productsList.ToArray();
 
 
