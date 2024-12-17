@@ -9,22 +9,31 @@ namespace CSharpSelFramework.pageObjects
     public class ProductsPage
     {
 
-        IWebDriver driver;
-        By cardTitle = By.CssSelector(".card-title a");
-        By addToCart = By.CssSelector(".card-footer button");
+
+        private IWebDriver driver;
+
+        // By locators for card title and add to cart button
+        private By cardTitle = By.CssSelector(".card-title a");
+        private By addToCart = By.CssSelector(".card-footer button");
+
+        // Private IWebElement lists and single elements
+        private IList<IWebElement> cards;
+        private IWebElement checkoutButton;
 
         public ProductsPage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
 
+            // Initialize elements manually using FindElements for the list and FindElement for the button
+            cards = driver.FindElements(By.TagName("app-card"));
+            checkoutButton = driver.FindElement(By.PartialLinkText("Checkout"));
         }
 
-        [FindsBy(How = How.TagName, Using = "app-card")]
-        private IList<IWebElement> cards;
+        // [FindsBy(How = How.TagName, Using = "app-card")]
+        // private IList<IWebElement> cards;
 
-        [FindsBy(How = How.PartialLinkText, Using = "Checkout")]
-        private IWebElement checkoutButton;
+        // [FindsBy(How = How.PartialLinkText, Using = "Checkout")]
+        // private IWebElement checkoutButton;
 
 
         public void waitForPageDisplay()
@@ -37,7 +46,7 @@ namespace CSharpSelFramework.pageObjects
 
         public IList<IWebElement> getCards()
         {
-            
+
             return cards;
         }
 
