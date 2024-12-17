@@ -121,7 +121,7 @@ namespace CSharpSelFramework.utilities
 
             if (status == TestStatus.Failed)
             {
-                ITakesScreenshot ts= (ITakesScreenshot)driver;
+                ITakesScreenshot ts= (ITakesScreenshot)driver.Value;
                 var screenshot= ts.GetScreenshot().AsBase64EncodedString;
               
                 test.Fail("Test failed", MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, fileName).Build());
@@ -134,7 +134,7 @@ namespace CSharpSelFramework.utilities
             }
 
             extent.Flush();
-             driver.Value.Quit();
+            driver.Value.Quit();
         }
 
         // public MediaEntityModelProvider captureScreenShot(IWebDriver driver,String screenShotName)
