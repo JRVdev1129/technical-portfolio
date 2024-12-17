@@ -20,17 +20,22 @@ namespace CSharpSelFramework.utilities
     {
         public required ExtentReports extent;
         public required ExtentTest test;
-        String? browserName;
+        string? browserName;
         //report file
         [OneTimeSetUp]
         public void Setup()
 
         {
             string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath =projectDirectory + "//index.html";
-            var htmlReporter = new  ExtentSparkReporter(reportPath);
-             extent = new ExtentReports();
+            string? projectDirectory = Directory.GetParent(workingDirectory)?.Parent?.Parent?.FullName;
+
+            if (projectDirectory == null)
+            {
+                throw new InvalidOperationException("Unable to determine the project directory.");
+            }
+            String reportPath = projectDirectory + "//index.html";
+            var htmlReporter = new ExtentSparkReporter(reportPath);
+            extent = new ExtentReports();
             extent.AttachReporter(htmlReporter);
             extent.AddSystemInfo("Host Name", "Local host");
             extent.AddSystemInfo("Environment", "QA");
@@ -39,14 +44,14 @@ namespace CSharpSelFramework.utilities
         }
 
 
-       // public IWebDriver driver;
+        // public IWebDriver driver;
         public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
         [SetUp]
 
         public void StartBrowser()
 
         {
-          test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+            test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             //Configuration
             browserName = TestContext.Parameters["browserName"];
             if (browserName == null)
@@ -54,9 +59,12 @@ namespace CSharpSelFramework.utilities
 
                 browserName = ConfigurationManager.AppSettings["browser"];
             }
+            browserName ??= "Chrome";
             InitBrowser(browserName);
 
-            driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+
+            driver.Value!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             driver.Value.Manage().Window.Maximize();
             driver.Value.Url = "https://rahulshettyacademy.com/loginpagePractise/";
@@ -67,8 +75,14 @@ namespace CSharpSelFramework.utilities
         public IWebDriver getDriver()
 
         {
+
+            if (driver.Value == null)
+            {
+                throw new InvalidOperationException("WebDriver has not been initialized.");
+            }
             return driver.Value;
         }
+
 
         public void InitBrowser(string browserName)
 
@@ -121,20 +135,20 @@ namespace CSharpSelFramework.utilities
 
             if (status == TestStatus.Failed)
             {
-                ITakesScreenshot ts= (ITakesScreenshot)driver.Value;
-                var screenshot= ts.GetScreenshot().AsBase64EncodedString;
-              
+                ITakesScreenshot ts = (ITakesScreenshot)driver.Value!;
+                var screenshot = ts.GetScreenshot().AsBase64EncodedString;
+
                 test.Fail("Test failed", MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, fileName).Build());
-                test.Log(Status.Fail,"test failed with logtrace"+ stackTrace);
+                test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
 
             }
             else if (status == TestStatus.Passed)
             {
-          
+
             }
 
             extent.Flush();
-            driver.Value.Quit();
+            driver.Value!.Quit();
         }
 
         // public MediaEntityModelProvider captureScreenShot(IWebDriver driver,String screenShotName)
