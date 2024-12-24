@@ -67,7 +67,7 @@ namespace CSharpSelFramework.utilities
             driver.Value!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             driver.Value.Manage().Window.Maximize();
-            driver.Value.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+            driver.Value.Url = "https://the-internet.herokuapp.com/";
 
 
         }
