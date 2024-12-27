@@ -33,7 +33,11 @@ namespace SeleniumLearning
         public void ABTestingDescription( )
 
         {
-          
+            // Create the ExtentTest entry for this test
+            test = extent.CreateTest(TestContext.CurrentContext.Test.Name, "Validating A/B Testing page description");
+
+            // Log additional information in the ExtentReport
+            test.Info("Starting test to validate the description on the A/B Testing page.");
 
             String expectedDescription = "Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works best towards a desired outcome (e.g. a user action such as a click-through).";
             ABTestingPage abTestingPage = new ABTestingPage(getDriver());
