@@ -5,6 +5,7 @@ using System.Configuration;
 using System.IO;
 using System.Threading;
 using AventStack.ExtentReports;
+using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -20,6 +21,8 @@ namespace CSharpSelFramework.utilities
     {
         public required ExtentReports extent;
         public required ExtentTest test;
+        public ExtentTest? feature; // new
+        public ExtentTest? scenario; // new
         string? browserName;
         //report file
         [OneTimeSetUp]
@@ -51,6 +54,12 @@ namespace CSharpSelFramework.utilities
         public void StartBrowser()
 
         {
+            // Create a Gherkin Feature node
+            feature = extent.CreateTest<Feature>("Feature: Automated Testing"); 
+
+            // Create a Gherkin Scenario node for each test
+            scenario = feature.CreateNode<Scenario>($"Scenario: {TestContext.CurrentContext.Test.Name}"); // new
+
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
             //Configuration
             browserName = TestContext.Parameters["browserName"];
@@ -138,12 +147,16 @@ namespace CSharpSelFramework.utilities
                 ITakesScreenshot ts = (ITakesScreenshot)driver.Value!;
                 var screenshot = ts.GetScreenshot().AsBase64EncodedString;
 
+                 scenario?.CreateNode<Then>("Test failed").Fail("Failure details logged.");
+
                 test.Fail("Test failed", MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, fileName).Build());
                 test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
 
             }
             else if (status == TestStatus.Passed)
             {
+                scenario?.CreateNode<Then>("Test passed successfully").Pass("Step passed");
+
 
             }
 

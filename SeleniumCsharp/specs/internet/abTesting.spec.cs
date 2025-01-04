@@ -36,15 +36,26 @@ namespace SeleniumLearning
             // Create the ExtentTest entry for this test
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name, "Validating A/B Testing page description");
 
+            scenario = test.CreateNode<AventStack.ExtentReports.Gherkin.Model.Scenario>($"{TestContext.CurrentContext.Test.Name}"); // new
+
+            
             // Log additional information in the ExtentReport
             test.Info("Starting test to validate the description on the A/B Testing page.");
+
+            scenario.CreateNode<AventStack.ExtentReports.Gherkin.Model.Given>("The user is on the homepage.");
 
             String expectedDescription = "Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works best towards a desired outcome (e.g. a user action such as a click-through).";
             ABTestingPage abTestingPage = new ABTestingPage(getDriver());
             WebDriverWait wait = new WebDriverWait(driver.Value, TimeSpan.FromSeconds(8));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.PartialLinkText("A/B Testing")));
 
+            // Log another Gherkin-style step
+            scenario.CreateNode<AventStack.ExtentReports.Gherkin.Model.When>("The user clicks on the A/B Testing link."); 
             abTestingPage.getABTestingLink().Click();
+
+            // Log another Gherkin-style step
+            scenario.CreateNode<AventStack.ExtentReports.Gherkin.Model.Then>("The description should match the expected value.");
+
             string description =  abTestingPage.getABTestingDescription().Text;
             Assert.That(expectedDescription,Is.EqualTo(description));
 
